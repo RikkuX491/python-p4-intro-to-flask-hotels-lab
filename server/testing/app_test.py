@@ -81,6 +81,11 @@ class TestApp:
 
     def test_hotel_by_id_route(self):
         '''has a resource available at "/hotels/<id>".'''
+        hotels.clear()
+        hotels.append({
+            "id": 1,
+            "name": "Wyndham Hotel"
+        })
         response = app.test_client().get('/hotels/1')
         assert(response.status_code == 200)
 
